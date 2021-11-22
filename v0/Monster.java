@@ -1,4 +1,4 @@
-public class Monster{
+public class Monster extends Character{
   public boolean isAlive(){
     return true;
   }
