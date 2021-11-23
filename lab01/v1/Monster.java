@@ -1,9 +1,9 @@
 /*
-  class Monster -- Represents random incarnations of 
+  class Monster -- Represents random incarnations of
   the adventurer's natural enemy in Ye Olde RPG
 **/
 
-public class Monster {
+public class Monster extends Character {
 
   // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
   private int _hitPts;
@@ -43,8 +43,8 @@ public class Monster {
   /**
      int attack(Warrior) -- simulates attack on a Warrior
      pre:  Input not null
-     post: Calculates damage to be inflicted, flooring at 0. 
-     Calls opponent's lowerHP() method to inflict damage. 
+     post: Calculates damage to be inflicted, flooring at 0.
+     Calls opponent's lowerHP() method to inflict damage.
      Returns damage dealt.
   **/
   public int attack( Protagonist opponent ) {
@@ -71,4 +71,3 @@ public class Monster {
   }
 
 }//end class Monster
-
