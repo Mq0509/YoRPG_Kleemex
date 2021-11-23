@@ -13,12 +13,7 @@
  * Kleemex -- Lindsay Phung, May Qiu, Xinqing Lin
  * APCS
  * 2021-11-22
- * time spent:
- * 
- * DISCO:
- *
- * QCC:
- *
+ * time spent: 0.5 hr
  **********************************************/
 
 import java.io.*;
