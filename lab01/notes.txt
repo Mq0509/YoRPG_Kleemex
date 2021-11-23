@@ -1,0 +1,14 @@
+Kleemex -- Lindsay Phung, May Qiu, Xinqing Lin
+APCS
+2021-11-22
+Lab01: An adventurer is You!
+time spent: 1 hr
+
+DISCO:
+- We can put attributes in common between Monster and Protagonist in a superclass: Character.java
+
+QCC:
+- Need to include safe alternate code after catch
+- How does IOException e work? What other errors besides NumberFormatException does it include?
+
+
