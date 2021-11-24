@@ -15,6 +15,8 @@
  * 2021-11-22
  * time spent: 0.5 hr
  **********************************************/
+/*OUR DRIVER MODS
+We tried to get class options to work, but have a hard time actually assigning these to the character.
 
 import java.io.*;
 import java.util.*;
@@ -61,25 +63,44 @@ public class YoRPG {
     =============================================*/
   public void newGame() {
     String s;
-    String selection = "";
-    s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
+  String selection = "";
+  String name ="";
+
+      s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
+    s = "Intrepid protagonist, what doth thy call thyself? (State your name): ";
+        System.out.print( s );
+
+    try {
+	    name = in.readLine();
+    }
+    catch ( IOException e ) { }
+
 
     s += "\nChoose your protagonist: \n";
-    s += "Magician \n"+Magician.about();
-    s += "Warrior \n"+Warrior.about();
-    s += "Knight \n"+Knight.about();
+    s += "Magician \n"+ Magician.about() + "\n";
+    s += "Warrior \n"+ Warrior.about() + "\n";
+    s += "Knight \n"+ Knight.about() + "\n";
     s += "Selection: ";
     System.out.print( s );
 
     try {
       selection=(in.readLine() );
       if (selection.equals("Magician")){
-
-      };
+        pat=new Magician();
+      }
+      else if(selection.equals("Warrior")){
+        pat=new Warrior();
+      }
+      else if(selection.equals("Knight")){
+        pat=new Knight();
+      }
+      else{
+        System.out.println("That's not one of the three options!");
+      }
     }
-    catch ( IOException e ) { }
-
-    String name = "";
+    catch ( IOException e ) {
+      System.out.println("Thats not one of the three options!");
+    }
     s += "\nChoose your difficulty: \n";
     s += "\t1: Easy\n";
     s += "\t2: Not so easy\n";
@@ -91,17 +112,6 @@ public class YoRPG {
 	    difficulty = Integer.parseInt( in.readLine() );
     }
     catch ( IOException e ) { }
-
-    s = "Intrepid protagonist, what doth thy call thyself? (State your name): ";
-    System.out.print( s );
-
-    try {
-	    name = in.readLine();
-    }
-    catch ( IOException e ) { }
-
-    //instantiate the player's character
-    pat = new Protagonist( name );
 
   }//end newGame()
 
