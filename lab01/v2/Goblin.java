@@ -1,5 +1,6 @@
 public class Goblin extends Monster {
-    public static void about(){
-      System.out.println("");
+    private int _strength= 30 + (int)( Math.random() * 45 );;
+    public static String about(){
+      return "Goblins have higher attack.";
     }
 }

@@ -61,9 +61,25 @@ public class YoRPG {
     =============================================*/
   public void newGame() {
     String s;
-    String name = "";
+    String selection = "";
     s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
 
+    s += "\nChoose your protagonist: \n";
+    s += "Magician \n"+Magician.about();
+    s += "Warrior \n"+Warrior.about();
+    s += "Knight \n"+Knight.about();
+    s += "Selection: ";
+    System.out.print( s );
+
+    try {
+      selection=(in.readLine() );
+      if (selection.equals("Magician")){
+
+      };
+    }
+    catch ( IOException e ) { }
+
+    String name = "";
     s += "\nChoose your difficulty: \n";
     s += "\t1: Easy\n";
     s += "\t2: Not so easy\n";

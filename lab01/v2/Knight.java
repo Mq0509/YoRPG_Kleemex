@@ -1,5 +1,6 @@
 public class Knight extends Protagonist {
-    public static void about(){
-      System.out.println("Knights have better defense, but worse offense.");
+  private int _defense=60;
+    public static String about(){
+      return "Knights have better defense.";
     }
 }
