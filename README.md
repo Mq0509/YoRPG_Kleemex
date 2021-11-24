@@ -14,7 +14,7 @@ choices of MONSTERS:
 
 ### version-to-version modifications:
 - in v0, we worked on compiling YoRPG.java by letting the errors guide us
-- in v1, we populated Character.java + was graced with the care packages 
+- in v1, we populated Character.java + were graced with the care packages 
 - in v2, we encountered an obstacle when working on augumenting the driver file to allow the player to choose their character... will work on it tomorrow either in class or in the dojo
 
 ### ways to grow this game in the future:
