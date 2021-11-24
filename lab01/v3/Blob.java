@@ -1,5 +1,7 @@
 public class Blob extends Monster {
-  private int _hitPts=200;
+  public Blob () {
+    _hitPts = 170;
+  }
   public static String about(){
     return "Blobs have greater health.";
   }

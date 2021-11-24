@@ -63,11 +63,11 @@ public class YoRPG {
     =============================================*/
   public void newGame() {
     String s;
-    String selection = "";
+    int selection;
     String name = "";
 
     s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
-    s += "\nChoose your difficulty: \n";
+    s += "\nChoose your difficulty: (Choose a number)\n";
     s += "\t1: Easy\n";
     s += "\t2: Not so easy\n";
     s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
@@ -77,7 +77,10 @@ public class YoRPG {
     try {
 	    difficulty = Integer.parseInt( in.readLine() );
     }
-    catch ( IOException e ) { }
+    catch ( Exception e ) {
+      System.out.println("Thats not one of the three options! Automatically set difficulty to Easy.");
+      difficulty = 1;
+    }
 
     s = "Intrepid protagonist, what doth thy call thyself? (State your name): ";
         System.out.print( s );
@@ -85,39 +88,40 @@ public class YoRPG {
     try {
 	    name = in.readLine();
     }
-    catch ( IOException e ) {
-      //System.out.println("Thats not one of the three options!");
+    catch ( Exception e ) {
+      System.out.println("That's not a valid name");
+      name = "J. Doe";
     }
 
-    //Character pat = new Protagonist( name );
-
-    s += "\nChoose your protagonist: \n";
-    s += "1: Magician \n"+ Magician.about() + "\n";
-    s += "2: Warrior \n" + Warrior.about() + "\n";
-    s += "3: Knight \n"+ Knight.about() + "\n";
-    s += "Selection: ";
+    s += "\nChoose your protagonist: (Choose a number)\n";
+    s += "\t1: Magician \n"+ Magician.about() + "\n";
+    s += "\t2: Warrior \n" + Warrior.about() + "\n";
+    s += "\t3: Knight \n"+ Knight.about() + "\n";
+    s += "\tSelection: ";
     System.out.print( s );
 
     try {
-      selection = in.readLine();
-      if (selection.equals("Magician")){
-        Character pat = new Magician();
+      selection = Integer.parseInt( in.readLine() );
+      System.out.println(selection);
+      if (selection == 1){
+        pat = new Magician();
         System.out.println("Thy is Harry Potter.");
       }
-      else if (selection.equals("Warrior")){
-        Character pat = new Warrior();
-        System.out.println("Thy is a regular.");
+      else if (selection == 2){
+        pat = new Warrior(name);
+        System.out.println("You are a boring warrior.");
       }
-      else if (selection.equals("Knight")){
-        Character pat = new Knight();
+      else if (selection == 3){
+        pat = new Knight();
         System.out.println("Are thy Arthur?");
       }
       else {
-        //System.out.println("You're boring.");
+        System.out.println("You're boring.");
       }
     }
-    catch ( IOException e ) {
-      //System.out.println("Thats not one of the three options!");
+    catch ( Exception e ) {
+      System.out.println("That's not one of the three options! Automatically set to default protagonist.");
+      pat = new Protagonist(name);
     }
 
   }//end newGame()
@@ -138,7 +142,21 @@ public class YoRPG {
     else {
       System.out.println( "\nLo, yonder monster approacheth!" );
 
-      smaug = new Monster();
+      //smaug = new Monster();
+
+      int monsterSelection = (int)(Math.random() * 3);
+      if (monsterSelection == 0) {
+        smaug = new Blob();
+        System.out.println("You encountered a BLOB!");
+      }
+      else if (monsterSelection == 1) {
+        smaug = new Goblin();
+        System.out.println("You encountered a GOBLIN!");
+      }
+      else {
+        smaug = new Ghast();
+        System.out.println("You encountered a GHAST!");
+      }
 
       while( smaug.isAlive() && pat.isAlive() ) {
 

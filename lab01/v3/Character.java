@@ -4,8 +4,6 @@ public class Character{
   protected int _defense;
   protected double _attack;
 
-
-
   public boolean isAlive() {
     return _hitPts > 0;
   }
