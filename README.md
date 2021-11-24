@@ -20,3 +20,4 @@ choices of MONSTERS:
 ### ways to grow this game in the future:
 - include pets
 - have specific attacks with different attributes/usages that can be chosen by the player
+- have an inventory, where items like healing potions can be stored.
