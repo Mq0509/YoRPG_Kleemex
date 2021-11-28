@@ -5,11 +5,11 @@
 public class Protagonist extends Character {
 
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
-    private String _name = "J. Doe";
-    private int _hitPts;
-    private int _strength;
-    private int _defense;
-    private double _attack;
+    protected String _name = "J. Doe";
+    // private int _hitPts;
+    // private int _strength;
+    // private int _defense;
+    // private double _attack;
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

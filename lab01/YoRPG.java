@@ -15,7 +15,9 @@
  * 2021-11-22
  * time spent: 0.5 hr
  **********************************************/
-
+/*OUR DRIVER MODS
+We tried to get class options to work, but have a hard time actually assigning these to the character.
+*/
 import java.io.*;
 import java.util.*;
 
@@ -61,10 +63,11 @@ public class YoRPG {
     =============================================*/
   public void newGame() {
     String s;
+    int selection;
     String name = "";
-    s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
 
-    s += "\nChoose your difficulty: \n";
+    s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
+    s += "\nChoose your difficulty: (Choose a number)\n";
     s += "\t1: Easy\n";
     s += "\t2: Not so easy\n";
     s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
@@ -74,18 +77,52 @@ public class YoRPG {
     try {
 	    difficulty = Integer.parseInt( in.readLine() );
     }
-    catch ( IOException e ) { }
+    catch ( Exception e ) {
+      System.out.println("Thats not one of the three options! Automatically set difficulty to Easy.");
+      difficulty = 1;
+    }
 
     s = "Intrepid protagonist, what doth thy call thyself? (State your name): ";
-    System.out.print( s );
+        System.out.print( s );
 
     try {
 	    name = in.readLine();
     }
-    catch ( IOException e ) { }
+    catch ( Exception e ) {
+      System.out.println("That's not a valid name");
+      name = "J. Doe";
+    }
 
-    //instantiate the player's character
-    pat = new Protagonist( name );
+    s += "\nChoose your protagonist: (Choose a number)\n";
+    s += "\t1: Magician \n"+ Magician.about() + "\n";
+    s += "\t2: Warrior \n" + Warrior.about() + "\n";
+    s += "\t3: Knight \n"+ Knight.about() + "\n";
+    s += "\tSelection: ";
+    System.out.print( s );
+
+    try {
+      selection = Integer.parseInt( in.readLine() );
+      System.out.println(selection);
+      if (selection == 1){
+        pat = new Magician();
+        System.out.println("Thy is Harry Potter.");
+      }
+      else if (selection == 2){
+        pat = new Warrior(name);
+        System.out.println("You are a boring warrior.");
+      }
+      else if (selection == 3){
+        pat = new Knight();
+        System.out.println("Are thy Arthur?");
+      }
+      else {
+        System.out.println("You're boring.");
+      }
+    }
+    catch ( Exception e ) {
+      System.out.println("That's not one of the three options! Automatically set to default protagonist.");
+      pat = new Protagonist(name);
+    }
 
   }//end newGame()
 
@@ -105,7 +142,21 @@ public class YoRPG {
     else {
       System.out.println( "\nLo, yonder monster approacheth!" );
 
-      smaug = new Monster();
+      //smaug = new Monster();
+
+      int monsterSelection = (int)(Math.random() * 3);
+      if (monsterSelection == 0) {
+        smaug = new Blob();
+        System.out.println("You encountered a BLOB!");
+      }
+      else if (monsterSelection == 1) {
+        smaug = new Goblin();
+        System.out.println("You encountered a GOBLIN!");
+      }
+      else {
+        smaug = new Ghast();
+        System.out.println("You encountered a GHAST!");
+      }
 
       while( smaug.isAlive() && pat.isAlive() ) {
 
